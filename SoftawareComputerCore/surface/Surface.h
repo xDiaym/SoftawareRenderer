@@ -25,6 +25,8 @@ namespace surface
 		void drop_image(std::string filename);
 		void load_image(std::string filename);
 
+		void flip_vertically(void);
+
 		void change_pixel_color(size_t x, size_t y, color col);
 
 		void fill(const color& c);

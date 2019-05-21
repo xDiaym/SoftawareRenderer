@@ -70,6 +70,20 @@ namespace surface
 		}
 	}
 
+	void Surface::flip_vertically(void)
+	{
+		size_t c = height - 1;
+		for (size_t i = 0; i < height / 2; i++)
+		{
+			for (size_t j = 0; j < width; j++)
+			{
+				// std::cerr << j << " " << i << " " << c << std::endl;
+				std::swap(canvas[j + i * width], canvas[j + c * width]);
+			}
+			c--;
+		}
+	}
+
 	void Surface::change_pixel_color(const size_t x, const size_t y, const color col)
 	{
 		assert(x < width && y < height);

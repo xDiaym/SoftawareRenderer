@@ -26,6 +26,7 @@ int main(int argc, char **arhv)
 	triangle(s, vec2i(95), vec2i{ 95, 159 }, vec2i{ 159, 95 }, color{ 0, 255, 255 });
 	triangle(s, vec2i(159), vec2i{ 95, 159 }, vec2i{ 159, 95 }, color{ 255, 255, 255 });
 
+	s.flip_vertically();
 	s.drop_image("images/ppm/triangles.ppm");
 
 	return 0;
