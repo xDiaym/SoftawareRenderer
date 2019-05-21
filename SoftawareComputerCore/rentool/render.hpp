@@ -29,30 +29,60 @@ namespace render
 
 	void line(Surface& screen, const vec2i& beg, const vec2i& end, const color& col)
 	{
-		int x0 = beg[0];
+		bool steep = false;		/* delta_x is greater than delta_y, or vice versa
+								   simply speaking, the line is "horizontal" or "vertical" */
+
+
+		int x0 = beg[0];		// Begin and end line position
 		int y0 = beg[1];
 		int x1 = end[0];
 		int y1 = end[1];
 
-		int delta_x = std::abs(x1 - x0);
-		int delta_y = std::abs(y1 - y0);
+		if (std::abs(x1 - x0) < std::abs(y1 - y0))
+		{
+			steep = true;
+			std::swap(x0, y0);
+			std::swap(x1, y1);
+		}
 
-		int db_y = 2 * delta_y;
+		int delta_x = std::abs(x1 - x0);	// x-lenght (?)
+		int delta_y = std::abs(y1 - y0);	// y-lenght (?)
+
+		int db_y = 2 * delta_y;				
 		int db_x = 2 * delta_x;
 		short dir = (y1 > y0 ? 1 : -1);
 
 		int d_error = 0;
 
-		size_t y = y0;
-
-		for (size_t x = x0; x <= x1; x++)
+		int y = y0;
+		/*
+			We know delta_x and delta_y before the loop,
+			so why check them in a loop?
+		*/
+		if (steep)
 		{
-			screen.change_pixel_color(x, y, col);
-			d_error += db_y;
-			if (d_error >= delta_x)
+			for (int x = x0; x <= x1; x++)
 			{
-				y += dir;
-				d_error -= db_x;
+				screen.change_pixel_color(x, y, col);
+				d_error += db_y;
+				if (d_error >= delta_x)
+				{
+					y += dir;
+					d_error -= db_x;
+				}
+			}
+		}
+		else
+		{
+			for (int x = x0; x <= x1; x++)
+			{
+				screen.change_pixel_color(y, x, col);
+				d_error += db_y;
+				if (d_error >= delta_x)
+				{
+					y += dir;
+					d_error -= db_x;
+				}
 			}
 		}
 	}
