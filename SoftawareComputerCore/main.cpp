@@ -24,10 +24,9 @@ int main(int argc, char **arhv)
 
 	line(s, vec2i(0), vec2i(64), color(255));
 
-	line(s, vec2i{ 64, 64 }, vec2i{ 150, 86 }, color{ 0, 255, 255 });
-	line(s, vec2i{ 64, 64 }, vec2i{ 86, 150 }, color{ 0, 255, 255 });
+	triangle(s, vec2i(0), vec2i(64), vec2i{ 0, 64 }, color{ 0, 255, 255 });
 
-	s.drop_image("images/ppm/line.ppm");
+	s.drop_image("images/ppm/triangle.ppm");
 
 	return 0;
 }
