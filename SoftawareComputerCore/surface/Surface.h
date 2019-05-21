@@ -30,8 +30,6 @@ namespace surface
 		void fill(const color& c);
 		void test_image(void);
 
-		void samlipng(void);
-
 		// TODO replace 
 		size_t width, height;
 	private:

@@ -56,7 +56,7 @@ namespace surface
 		std::getline(source, data, '\n');
 		color_deep = std::stoi(data);
 
-		// Parser themself
+		
 		//std::string dt(std::istreambuf_iterator<char>(source.rdbuf()), std::istreambuf_iterator<char>());
 		//std::cout << dt << std::endl;
 
@@ -92,11 +92,7 @@ namespace surface
 
 	void Surface::test_image(void)
 	{
-		/*
-		: add deltas
-		: for loop
-		: filestream
-		*/
+
 		float delta_x = color_deep / (float)width;
 		float delta_y = color_deep / (float)height;
 	
@@ -107,23 +103,6 @@ namespace surface
 				canvas[w + h * width] = color{ static_cast<uint8_t>(w*delta_x), static_cast<uint8_t>(h*delta_y), 127 };
 			}
 		}
-	}
-
-	void Surface::samlipng(void)
-	{
-		std::vector<color> nw(canvas);
-		for (size_t h = 1; h < height - 1; h++)
-		{
-			for (size_t w = 1; w < width - 1; w++)
-			{
-				nw[w + h * width] = \
-				   (canvas[w + 1 + h * width] +\
-					canvas[w - 1 + h * width] +\
-					canvas[w + (h-1) * width] +\
-					canvas[w + (h+1) * width]) / 4 ;
-			}
-		}
-		canvas = nw;
 	}
 
 }}
