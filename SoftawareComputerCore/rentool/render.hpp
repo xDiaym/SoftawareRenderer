@@ -37,21 +37,22 @@ namespace render
 		int delta_x = std::abs(x1 - x0);
 		int delta_y = std::abs(y1 - y0);
 
-		float delta = (delta_x != 0 ? 2 * delta_y /(float)delta_x : 1);
+		int db_y = 2 * delta_y;
+		int db_x = 2 * delta_x;
 		short dir = (y1 > y0 ? 1 : -1);
 
-		float d_error = 0;
+		int d_error = 0;
 
 		size_t y = y0;
 
 		for (size_t x = x0; x <= x1; x++)
 		{
 			screen.change_pixel_color(x, y, col);
-			d_error += delta;
-			if (d_error >= 1)
+			d_error += db_y;
+			if (d_error >= delta_x)
 			{
 				y += dir;
-				d_error -= 2;
+				d_error -= db_x;
 			}
 		}
 	}

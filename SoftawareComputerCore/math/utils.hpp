@@ -10,7 +10,7 @@ namespace math
 	{
 		vec<size, T> puv(0);
 
-		T delta = static_cast<T>((v ^ u) / std::pow(v.get_len(), 2));
+		T delta = static_cast<T>((v * u) / std::pow(v.get_len(), 2));
 		puv = v * delta;
 		return puv;
 	}
