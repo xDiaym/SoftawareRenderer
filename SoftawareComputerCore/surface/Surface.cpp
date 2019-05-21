@@ -68,6 +68,7 @@ namespace surface
 							   static_cast<uint8_t>(buff[1]),
 							   static_cast<uint8_t>(buff[2]) };
 		}
+		source.close();
 	}
 
 	void Surface::flip_vertically(void)

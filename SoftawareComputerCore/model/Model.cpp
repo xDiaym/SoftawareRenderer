@@ -9,7 +9,13 @@ namespace loader
 
 	Model::Model(std::string filename)
 	{
-		std::ifstream obj_file(filename, std::ifstream::in);
+		std::ifstream obj_file(filename);
+
+		if (obj_file.fail())
+		{
+			std::cerr << "No such file or dirictory!" << std::endl;
+			return;
+		}
 
 		std::string line;
 		while (!obj_file.eof())
@@ -26,12 +32,15 @@ namespace loader
 					iss >> vert[i];
 				_verts.push_back(vert);
 			}
-			else if (line.compare(0, 2, "f "))
+			else if (!line.compare(0, 2, "f "))
 			{
-				char slashtrash;
+				int numtrash;
 				int i;
 				std::vector<int> fac;		// o_O Does not contain offensive language
-				while (iss >> i >> slashtrash >> trash >> slashtrash >> trash)
+
+				iss >> trash; // I HATE "F "
+
+				while (iss >> i >> trash >> numtrash >> trash >> numtrash)
 				{
 					--i;
 					fac.push_back(i);
@@ -39,7 +48,7 @@ namespace loader
 				_faces.push_back(fac);
 			}
 		}
-
+		obj_file.close();
 	}
 
 	Model::~Model()
