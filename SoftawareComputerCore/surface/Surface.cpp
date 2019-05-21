@@ -70,7 +70,7 @@ namespace surface
 		}
 	}
 
-	void Surface::change_pixel_color(size_t x, size_t y, color col)
+	void Surface::change_pixel_color(const size_t x, const size_t y, const color col)
 	{
 		assert(x < width && y < height);
 		canvas[x + y * width] = col;

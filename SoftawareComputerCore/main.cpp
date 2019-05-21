@@ -22,11 +22,11 @@ int main(int argc, char **arhv)
 {
 	Surface s(255, 255);
 
-	line(s, vec2i(0), vec2i(64), color(255));
 
-	triangle(s, vec2i(0), vec2i(64), vec2i{ 0, 64 }, color{ 0, 255, 255 });
+	triangle(s, vec2i(95), vec2i{ 95, 159 }, vec2i{ 159, 95 }, color{ 0, 255, 255 });
+	triangle(s, vec2i(159), vec2i{ 95, 159 }, vec2i{ 159, 95 }, color{ 255, 255, 255 });
 
-	s.drop_image("images/ppm/triangle.ppm");
+	s.drop_image("images/ppm/triangles.ppm");
 
 	return 0;
 }

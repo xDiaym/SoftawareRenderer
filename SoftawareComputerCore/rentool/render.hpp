@@ -29,6 +29,8 @@ namespace render
 
 	void line(Surface& screen, const vec2i& beg, const vec2i& end, const color& col)
 	{
+		// TODO add assertion
+
 		bool steep = false;		/* delta_x is greater than delta_y, or vice versa
 								   simply speaking, the line is "horizontal" or "vertical" */
 
@@ -54,7 +56,7 @@ namespace render
 		int delta_x = x1 - x0;	// x-lenght (?)
 		int delta_y = y1 - y0;	// y-lenght (?)
 
-		int db_y = 2 * delta_y;				
+		int db_y = 2 * std::abs(delta_y);				
 		int db_x = 2 * delta_x;
 		short dir = (y1 > y0 ? 1 : -1);
 
