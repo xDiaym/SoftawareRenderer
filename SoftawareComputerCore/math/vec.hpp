@@ -159,9 +159,9 @@ namespace math
 	typedef vec<2, float> vec2f;
 
 	typedef vec<3, int>   vec3i;
-	typedef vec<2, float> vec3f;
+	typedef vec<3, float> vec3f;
 	
 	typedef vec<4, int>   vec4i;
-	typedef vec<2, float> vec4f;
+	typedef vec<4, float> vec4f;
 
 }}

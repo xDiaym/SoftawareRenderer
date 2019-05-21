@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="model\Model.cpp" />
     <ClCompile Include="surface\Surface.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -27,6 +28,7 @@
     <ClInclude Include="math\math.hpp" />
     <ClInclude Include="math\utils.hpp" />
     <ClInclude Include="math\vec.hpp" />
+    <ClInclude Include="model\Model.hpp" />
     <ClInclude Include="rentool\render.hpp" />
     <ClInclude Include="surface\Surface.h" />
   </ItemGroup>

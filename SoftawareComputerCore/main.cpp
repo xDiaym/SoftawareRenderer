@@ -4,6 +4,7 @@
 #include "math/math.hpp"
 #include "surface/Surface.h"
 #include "rentool/render.hpp"
+#include "model/Model.hpp"
 
 
 
@@ -13,6 +14,7 @@ using namespace sgc;
 using namespace math;
 using namespace surface;
 using namespace render;
+using namespace loader;
 #endif // _DEBUG
 
 
@@ -20,6 +22,8 @@ using namespace render;
 
 int main(int argc, char **arhv)
 {
+
+	system("PAUSE");
 	Surface s(255, 255);
 
 
