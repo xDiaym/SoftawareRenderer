@@ -10,6 +10,7 @@
 
 using namespace sgc;
 using namespace math;
+using namespace algebra;
 
 
 

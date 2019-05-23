@@ -11,6 +11,7 @@ namespace sgc
 {
 namespace math 
 {
+namespace algebra{
 
 	template<size_t size, typename T>
 	struct vec
@@ -62,7 +63,7 @@ namespace math
 
 	/*-----------------------------------------*/
 	template<size_t size, typename T>
-	std::ostream& operator<<(std::ostream& stream, const sgc::math::vec<size, T>& vector)
+	std::ostream& operator<<(std::ostream& stream, const sgc::math::algebra::vec<size, T>& vector)
 	{
 		stream << "Vector: ";
 		for (size_t s = 0; s < size; s++)
@@ -179,4 +180,4 @@ namespace math
 	typedef vec<4, int>   vec4i;
 	typedef vec<4, float> vec4f;
 
-}}
+}}}

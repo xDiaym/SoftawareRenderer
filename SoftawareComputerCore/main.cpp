@@ -13,7 +13,9 @@
 using namespace sgc;
 
 using namespace math;
+using namespace algebra;
 //using namespace geometry;
+
 using namespace surface;
 using namespace render;
 using namespace loader;

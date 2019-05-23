@@ -7,6 +7,9 @@ namespace sgc
 {
 namespace math
 {
+namespace algebra
+{
+
 	template<size_t width, size_t height, typename T>
 	struct mat
 	{
@@ -107,4 +110,4 @@ namespace math
 
 	typedef mat<2, 2, float> mat2f;
 	typedef mat<2, 2, int>   mat2i;
-}}
+}}}

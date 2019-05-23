@@ -4,6 +4,9 @@ namespace sgc
 {
 namespace math
 {
+namespace algebra 
+{
+	
 
 	template<size_t size, typename T, typename U>
 	vec<size, T> projection(vec<size, T>& u, vec<size, U>& v)
@@ -14,5 +17,7 @@ namespace math
 		puv = v * delta;
 		return puv;
 	}
+
+}
 
 }}
