@@ -4,7 +4,7 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
-#include "../math/vec.hpp"
+#include "../math/algebra/vec.hpp"
 
 
 

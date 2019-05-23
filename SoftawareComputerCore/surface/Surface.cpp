@@ -91,6 +91,12 @@ namespace surface
 		canvas[x + y * width] = col;
 	}
 
+	void Surface::change_pixel_color(const vec2i & pos, color col)
+	{
+		assert(pos[0] < (int)width && pos[1] < (int)height);
+		canvas[pos[0] + pos[1] * width] = col;
+	}
+
 	void Surface::fill(const color & c)
 	{
 		float delta_x = color_deep / (float)width;

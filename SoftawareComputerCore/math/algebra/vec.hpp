@@ -152,6 +152,21 @@ namespace math
 		return cast;
 	}
 
+	/*--------------------------------------*/
+
+	template<size_t new_size, size_t old_size, typename T>
+	vec<new_size, T> proj(const vec<old_size, T>& vector)
+	{
+		assert(new_size < old_size);
+
+		vec<new_size, T> ret;
+		for (size_t i = 0; i < new_size; i++)
+		{
+			ret[i] = vector[i];
+		}
+		return ret;
+	}
+
 
 	typedef vec<3, uint8_t> color;
 

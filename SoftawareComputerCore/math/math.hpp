@@ -1,6 +1,8 @@
 #pragma once
 
 
-#include "vec.hpp"
-#include "mat.hpp"
-#include "utils.hpp"
+#include "algebra/vec.hpp"
+#include "algebra/mat.hpp"
+#include "algebra/utils.hpp"
+
+#include "geometry/triangle.hpp"

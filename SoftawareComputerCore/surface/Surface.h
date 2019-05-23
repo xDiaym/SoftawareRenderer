@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "../math/vec.hpp"
+#include "../math/algebra/vec.hpp"
 
 
 using namespace sgc;
@@ -28,6 +28,7 @@ namespace surface
 		void flip_vertically(void);
 
 		void change_pixel_color(size_t x, size_t y, color col);
+		void change_pixel_color(const vec2i& pos, color col);
 
 		void fill(const color& c);
 		void test_image(void);

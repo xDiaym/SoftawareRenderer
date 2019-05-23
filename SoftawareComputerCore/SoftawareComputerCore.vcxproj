@@ -24,10 +24,11 @@
     <ClCompile Include="surface\Surface.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="math\mat.hpp" />
+    <ClInclude Include="math\algebra\mat.hpp" />
+    <ClInclude Include="math\geometry\triangle.hpp" />
     <ClInclude Include="math\math.hpp" />
-    <ClInclude Include="math\utils.hpp" />
-    <ClInclude Include="math\vec.hpp" />
+    <ClInclude Include="math\algebra\utils.hpp" />
+    <ClInclude Include="math\algebra\vec.hpp" />
     <ClInclude Include="model\Model.hpp" />
     <ClInclude Include="rentool\render.hpp" />
     <ClInclude Include="surface\Surface.h" />

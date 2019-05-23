@@ -5,6 +5,7 @@
 #include "surface/Surface.h"
 #include "rentool/render.hpp"
 #include "model/Model.hpp"
+//#include "math/geometry/triangle.hpp"
 
 
 
@@ -12,6 +13,7 @@
 using namespace sgc;
 
 using namespace math;
+//using namespace geometry;
 using namespace surface;
 using namespace render;
 using namespace loader;
@@ -22,35 +24,17 @@ using namespace loader;
 
 int main(int argc, char **argv)
 {
-
 	Surface s(1024, 1024);
-	Model md("sources/models/african_head.obj");
+	Model md("../sources/models/african_head.obj");
+
+	draw_triangle (s, vec2i(16),  vec2i(64),  vec2i{ 16, 64 },   color{ 255, 255, 255 });
+	fill_triag    (s, vec2i(127), vec2i(255), vec2i{ 127, 255 }, color{ 0, 255, 255 });
 
 
 
-	for (size_t i = 0; i < md.face_size(); i++)
-	{
-		std::vector<int> face = md.face(i);
-
-		for (size_t j = 0; j < 3; j++)
-		{
-			vec3f l0 = md.vert(face[j]);
-			vec3f l1 = md.vert(face[(j + 1) % 3]);		 // if j == 3
-
-			int x0 = (s.width  - 1) * (l0[0] + 1) / 2;
-			int y0 = (s.height - 1) * (l0[1] + 1) / 2;
-			int x1 = (s.width  - 1) * (l1[0] + 1) / 2;
-			int y1 = (s.height - 1) * (l1[1] + 1) / 2;
-
-			//std::cout << x0 << " " << y0 << " " << x1 << " " << y1 << " " << std::endl;
-
-			line(s, vec2i{ y0, x0 }, vec2i{ y1, x1 }, color{ 0, 255, 255 });		// I dont know wat it means 0_0
-		}
-	}
-
-	s.flip_vertically();
-	s.drop_image("images/ppm/african_head.ppm");
-	system("PAUSE");
+	// s.flip_vertically();
+	s.drop_image("../images/ppm/fill_triangle.ppm");
+	// system("PAUSE");
 
 	return 0;
 }
