@@ -72,7 +72,7 @@ namespace render
 		{
 			for (int x = x0; x <= x1; x++)
 			{
-				screen.change_pixel_color(x, y, col);
+				screen.change_pixel_color(y, x, col);
 				d_error += db_y;
 				if (d_error >= delta_x)
 				{
@@ -85,7 +85,7 @@ namespace render
 		{
 			for (int x = x0; x <= x1; x++)
 			{
-				screen.change_pixel_color(y, x, col);
+				screen.change_pixel_color(x, y, col);
 				d_error += db_y;
 				if (d_error >= delta_x)
 				{
@@ -135,7 +135,7 @@ namespace render
 		{
 			for (int x = x0; x <= x1; x++)
 			{
-				screen.change_pixel_color(x, y, col);
+				screen.change_pixel_color(y, x, col);
 				d_error += db_y;
 				if (d_error >= delta_x)
 				{
@@ -148,7 +148,7 @@ namespace render
 		{
 			for (int x = x0; x <= x1; x++)
 			{
-				screen.change_pixel_color(y, x, col);
+				screen.change_pixel_color(x, y, col);
 				d_error += db_y;
 				if (d_error >= delta_x)
 				{
