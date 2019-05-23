@@ -129,11 +129,13 @@ namespace algebra{
 
 	/*-----------------------------------------*/
 
-	template<size_t size, typename T, typename U>
-	vec<size, T> operator^(vec<size, T> left, const vec<size, U>& right)
+	template<typename T, typename U>
+	vec<3, T> operator^(const vec<3, T>& left, const vec<3, U>& right)
 	{
-		for (size_t s = size; s--; left[s] *= right[s]);
-		return left;
+		vec<3, T> ret{ left[1] * right[2] - left[2] * right[1],
+					   left[2] * right[0] - left[0] * right[2],
+					   left[0] * right[1] - left[1] * right[0] };
+		return ret;
 	}
 
 	template<size_t size, typename T, typename U>
@@ -156,7 +158,7 @@ namespace algebra{
 	/*--------------------------------------*/
 
 	template<size_t new_size, size_t old_size, typename T>
-	vec<new_size, T> proj(const vec<old_size, T>& vector)
+	vec<new_size, T> cat(const vec<old_size, T>& vector)
 	{
 		assert(new_size < old_size);
 
@@ -165,6 +167,15 @@ namespace algebra{
 		{
 			ret[i] = vector[i];
 		}
+		return ret;
+	}
+
+	/*--------------------------------------*/
+	template<typename U, size_t size, typename T>
+	vec<size, U> change_type(const vec<size, T>& vector)
+	{
+		vec<size, U> ret;
+		for (size_t i = size; i--; ret[i] = (T)vector[i]);
 		return ret;
 	}
 
