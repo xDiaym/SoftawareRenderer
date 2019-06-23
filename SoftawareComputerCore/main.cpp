@@ -31,13 +31,15 @@ int main(int argc, char **argv)
 	draw_line(s, 0, 10, 128, 512, color{ 0, 255, 255 });
 
 
-	triangle tr(vec3i{ 0, 0, 1 }, vec3i{ 64, 128, 1 }, vec3i{ 128, 0, 1 });
+	triangle tr(vec3i{ 0, 0, 0 }, vec3i{ 0, 2, 0 }, vec3i{ 2, 0, 0 });
 
-	tr.raw_draw(s, color{ 0, 255, 255 });
+	std::cout << tr.normal() << std::endl;
+
+	//tr.raw_draw(s, color{ 0, 255, 255 });
 
 	// s.flip_vertically();
-	s.drop_image("../images/ppm/fill_triangle.ppm");
-	// system("PAUSE");
+	//s.drop_image("../images/ppm/fill_triangle.ppm");
+	system("PAUSE");
 
 	return 0;
 }

@@ -36,17 +36,9 @@ namespace geometry
 			draw_line(screen, cat<2>(vertices[1]), cat<2>(vertices[2]), col);
 		}
 
-		vec3f normal(void)
+		vec3i normal(void)
 		{
-			vec3f ret;
-			vec3i v0 = vertices[0] - vertices[1];
-			vec3i v1 = vertices[1] - vertices[2];
-
-			ret = change_type<float>(v0 ^ v1);
-			ret.normalize();
-
-			return ret;
-
+			return (vertices[2] - vertices[0]) ^ (vertices[1] - vertices[0]);
 		}
 
 		vec3i vertices[3];
