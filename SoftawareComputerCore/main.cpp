@@ -28,17 +28,16 @@ int main(int argc, char **argv)
 {
 	Surface s(1024, 1024);
 
-	draw_line(s, 0, 10, 128, 512, color{ 0, 255, 255 });
+	// draw_line(s, 0, 10, 128, 512, color{ 0, 255, 255 });
 
 
-	triangle tr(vec3i{ 0, 0, 0 }, vec3i{ 0, 2, 0 }, vec3i{ 2, 0, 0 });
+	triangle tr(vec3i{ 0, 0, 0 }, vec3i{ 100, 200, 0 }, vec3i{ 200, 100, 0 });
 
-	std::cout << tr.normal() << std::endl;
+	tr.fill_draw(s, color{ 0, 255, 255 });
 
-	//tr.raw_draw(s, color{ 0, 255, 255 });
-
-	// s.flip_vertically();
-	//s.drop_image("../images/ppm/fill_triangle.ppm");
+	s.flip_vertically();
+	s.drop_image("../images/ppm/test_triangle.ppm");
+	
 	system("PAUSE");
 
 	return 0;
