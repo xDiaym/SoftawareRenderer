@@ -29,6 +29,7 @@ using namespace loader;
 int main(int argc, char **argv)
 {
 	vec3f testv1{ 1.f, 0.f, 0.f };
+	vec4f testv2{ 1.f, 1.f, 1.f, 1.f };
 
 	mat4f test1(0.f);
 	test1 = mat4f::diag(test1);
@@ -36,7 +37,7 @@ int main(int argc, char **argv)
 	test1 = mat4f::rotate(test1, 90, testv1);
 
 
-	std::cout << test1 << std::endl;
+	std::cout << test1 * testv2 << std::endl;
 	system("pause");
 	return 0;
 

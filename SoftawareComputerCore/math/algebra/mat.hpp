@@ -145,6 +145,20 @@ namespace algebra
 	}
 
 
+	template<size_t w1, size_t h1, size_t s1, typename T, typename U>
+	vec<s1, T> operator* (const mat<w1, h1, U> &matrix, const vec<s1, T> &vector)
+	{
+		assert(s1 == h1);
+
+		vec<s1, T> ret(0);
+		for (size_t i = 0; i < s1; ++i)
+		{
+			ret[i] = (matrix[i] * vector);
+		}
+
+		return ret;
+	}
+
 
 	template<size_t width, size_t height, typename T>
 	std::ostream& operator<<(std::ostream& stream, const mat<width, height, T>& matrix)
