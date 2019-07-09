@@ -39,7 +39,7 @@ namespace geometry
 
 		void draw_fill(Surface& screen, const color& col)
 		{
-
+			// TODO
 		}
 
 		vec3i vertices[3];

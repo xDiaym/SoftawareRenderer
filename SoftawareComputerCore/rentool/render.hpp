@@ -188,23 +188,4 @@ namespace render
 	}
 	*/
 
-	void fill_triag(Surface& screen, vec2i l0, vec2i l1, vec2i l2, const color& col)
-	{
-		if (l0[1] > l1[1]) std::swap(l0, l1);
-		if (l0[1] > l2[1]) std::swap(l0, l2);
-		if (l1[1] > l2[1]) std::swap(l1, l2);
-
-		float delta_hyp = (l2[0] - l0[0]) / (float)(l2[1] - l0[1]);
-		float delta_cat = (l1[0] - l0[0]) / (float)(l1[1] - l0[1]);
-
-		float x0 = (float)l0[0];
-		float x1 = (float)l0[0];
-
-		for (int i = l0[1]; i < l1[1]; i++)
-		{
-			draw_line(screen, (int)x0, i, (int)x1, i, col);
-			x0 += delta_hyp;
-			x1 += delta_cat;
-		}
-	}
 }}
