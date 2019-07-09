@@ -28,27 +28,15 @@ using namespace loader;
 
 int main(int argc, char **argv)
 {
-	vec3f testv1(0.1f);
-	vec3f testv2(2.f);
-
-	//std::cout << testv1 * testv2 << std::endl << std::endl;
+	vec3f testv1{ 1.f, 0.f, 0.f };
 
 	mat4f test1(0.f);
-	mat4f test2(0.f);
-	mat4f test3(0.f);
-	
-	mat4f out(0.f);
+	test1 = mat4f::diag(test1);
 
-	test1 = mat4f::translate(test1, testv1);
-	test2 = mat4f::scale	(test2, testv2);
-	test2 = mat4f::scale	(test2, testv2);
-
-	out = test2 * test1;
+	test1 = mat4f::rotate(test1, 90, testv1);
 
 
 	std::cout << test1 << std::endl;
-	std::cout << test2 << std::endl;
-	std::cout << out << std::endl;
 	system("pause");
 	return 0;
 
