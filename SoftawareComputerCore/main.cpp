@@ -26,17 +26,21 @@ using namespace loader;
 
 int main(int argc, char **argv)
 {
-	Surface s(1024, 1024);
+	mat4f test1(0.f);
+	test1 = mat4f::diag(test1);
 
-	draw_line(s, 0, 10, 128, 512, color{ 0, 255, 255 });
+	std::cout << test1;
+	system("pause");
+	return 0;
 
 
+	Surface screen(1024, 1024);
 	triangle tr(vec3i{ 0, 0, 1 }, vec3i{ 64, 128, 1 }, vec3i{ 128, 0, 1 });
 
-	tr.raw_draw(s, color{ 0, 255, 255 });
+	tr.draw_raw(screen, color{ 0, 255, 255 });
 
 	// s.flip_vertically();
-	s.drop_image("../images/ppm/fill_triangle.ppm");
+	screen.drop_image("../images/ppm/fill_triangle.ppm");
 	// system("PAUSE");
 
 	return 0;

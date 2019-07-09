@@ -13,10 +13,11 @@ namespace algebra
 	template<size_t width, size_t height, typename T>
 	struct mat
 	{
-		mat(T fi = 0)
+		mat(T fi=0)
 		{
 			fill(fi);
 		}
+
 
 		vec<width, T>& operator[] (const size_t index)
 		{
@@ -30,7 +31,8 @@ namespace algebra
 			return data[index];
 		}
 
-		vec<width, T> col (const size_t index)
+
+		vec<width, T> col(const size_t index)
 		{
 			assert(index < height);
 			vec<height, T> ret();
@@ -58,19 +60,20 @@ namespace algebra
 			{
 				data[i] = vec<width, T>(value);
 			}
-
 		}
 
 
-		void make_diag(T value=1)
+		static mat<width, height, T> diag(mat<width, height, T> &matrix, T value=1)
 		{
 			assert(width == height);
 
-			fill(0);
-
 			for (size_t i = 0; i < width; i++)
-				data[i][i] = value;
+				matrix[i][i] = value;
+
+			return matrix;
 		}
+
+
 
 		vec<width, T> data[height];
 	};
@@ -95,6 +98,8 @@ namespace algebra
 		return ret;
 	}
 
+
+
 	template<size_t width, size_t height, typename T>
 	std::ostream& operator<<(std::ostream& stream, const mat<width, height, T>& matrix)
 	{
@@ -105,9 +110,14 @@ namespace algebra
 		return stream;
 	}
 
-	typedef mat<4, 4, float> mat4f;
-	typedef mat<4, 4, int>   mat4i;
 
-	typedef mat<2, 2, float> mat2f;
-	typedef mat<2, 2, int>   mat2i;
+
+	typedef mat<4, 4, float>	mat4f;
+	typedef mat<4, 4, int>		mat4i;
+	
+	typedef mat<3, 3, float>	mat3f;
+	typedef mat<3, 3, int>		mat3i;
+
+	typedef mat<2, 2, float>	mat2f;
+	typedef mat<2, 2, int>		mat2i;
 }}}
