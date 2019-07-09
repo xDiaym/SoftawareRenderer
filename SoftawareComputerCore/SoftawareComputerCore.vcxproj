@@ -38,7 +38,7 @@
     <ProjectGuid>{46260715-DF27-4FDB-8645-DAB89666B7CB}</ProjectGuid>
     <RootNamespace>SoftawareComputerCore</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
-    <ProjectName>src</ProjectName>
+    <ProjectName>SoftwareGL</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -87,23 +87,27 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\intermediates</IntDir>
+    <IntDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\intermediates\</IntDir>
     <TargetName>sgc</TargetName>
+    <SourcePath>$(SolutionDir)src\</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\intermediates</IntDir>
+    <IntDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\intermediates\</IntDir>
     <TargetName>sgc</TargetName>
+    <SourcePath>$(SolutionDir)src\</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\intermediates</IntDir>
+    <IntDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\intermediates\</IntDir>
     <TargetName>sgc</TargetName>
+    <SourcePath>$(SolutionDir)src\</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\intermediates</IntDir>
+    <IntDir>$(SolutionDir)bin\$(PlatformShortName)\$(Configuration)\intermediates\</IntDir>
     <TargetName>sgc</TargetName>
+    <SourcePath>$(SolutionDir)src\</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
