@@ -26,8 +26,9 @@ using namespace loader;
 
 int main(int argc, char **argv)
 {
+	vec3f testv{ .1f, 5.f, 42.314f };
 	mat4f test1(0.f);
-	test1 = mat4f::diag(test1);
+	test1 = mat4f::translate(test1, testv);
 
 	std::cout << test1;
 	system("pause");

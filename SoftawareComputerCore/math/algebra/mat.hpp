@@ -73,6 +73,19 @@ namespace algebra
 			return matrix;
 		}
 
+		static mat<4, 4, T> translate(mat<4, 4, T> &matrix, vec<3, T> &vector)
+		{
+			assert(width == height);
+
+			matrix[0][3] = vector[0];
+			matrix[1][3] = vector[1];
+			matrix[2][3] = vector[2];
+
+			return matrix;
+		}
+
+
+		
 
 
 		vec<width, T> data[height];
