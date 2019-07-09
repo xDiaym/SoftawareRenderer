@@ -32,10 +32,10 @@ namespace algebra
 		}
 
 
-		vec<width, T> col(const size_t index)
+		vec<height, T> col(const size_t index)
 		{
-			assert(index < height);
-			vec<height, T> ret();
+			assert(index < width);
+			vec<height, T> ret(0);
 			for (size_t i = 0; i < height; i++)
 			{
 				ret[i] = data[i][index];
@@ -43,9 +43,9 @@ namespace algebra
 			return ret;
 		}
 
-		const vec<width, T> col(const size_t index)
-		const {
-			assert(index < height);
+		const vec<height, T> col(const size_t index) const
+		{
+			assert(index < width);
 			vec<height, T> ret(0);
 			for (size_t i = 0; i < height; i++)
 			{
@@ -63,6 +63,8 @@ namespace algebra
 		}
 
 
+		// -----------------------------------------------------------------------
+		
 		static mat<width, height, T> diag(mat<width, height, T> &matrix, T value=1)
 		{
 			assert(width == height);
@@ -75,17 +77,25 @@ namespace algebra
 
 		static mat<4, 4, T> translate(mat<4, 4, T> &matrix, vec<3, T> &vector)
 		{
-			assert(width == height);
+			matrix = mat<4, 4, T>::diag(matrix);
 
-			matrix[0][3] = vector[0];
-			matrix[1][3] = vector[1];
-			matrix[2][3] = vector[2];
+			for (size_t i = 0; i < 3; ++i)
+				matrix[i][3] = vector[i];
 
 			return matrix;
 		}
 
 
-		
+		static mat<4, 4, T> scale(mat<4, 4, T> &matrix, vec<3, T> &vector)
+		{
+			for (size_t i = 0; i < 3; ++i)
+				matrix[i][i] = vector[i];
+
+			matrix[3][3] = 1;
+
+			return matrix;
+		}
+
 
 
 		vec<width, T> data[height];
@@ -96,16 +106,12 @@ namespace algebra
 	template<size_t c1, size_t r1, size_t c2, typename T, typename U>
 	mat<c1, c2, T> operator* (const mat<c1, r1, T>& left, const mat<r1, c2, U>& right)
 	{
-		mat<c1, c2, T> ret;
-		for (size_t i = 0; i < c1; i++)
+		mat<c1, c2, T> ret(0.f);
+		for (size_t i = 0; i < r1; ++i)
 		{
-			for (size_t j = 0; j < c2; j++)
+			for (size_t j = 0; j < r1; ++j)
 			{
-				for (size_t k = 0; k < r1; k++)
-				{
-					std::cout << left[i] * right.col(k) << std::endl;
-					ret[i][j] = left[i] * right.col(k);
-				}
+				ret[i][j] = left[i] * right.col(j);
 			}
 		}
 		return ret;
