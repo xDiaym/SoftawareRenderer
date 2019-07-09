@@ -23,9 +23,9 @@ namespace algebra{
 				element = fill;
 			}
 		}
+
 		vec(std::initializer_list<T> list)
 		{
-			// TODO delete assertion
 			assert(list.size() == size);
 
 			size_t i = 0;
@@ -34,6 +34,7 @@ namespace algebra{
 				data[i++] = element;
 			}
 		}
+
 
 		T& operator[](size_t index)
 		{

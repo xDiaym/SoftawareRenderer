@@ -9,7 +9,7 @@ namespace algebra
 	
 
 	template<size_t size, typename T, typename U>
-	vec<size, T> projection(vec<size, T>& u, vec<size, U>& v)
+	static vec<size, T> projection(vec<size, T>& u, vec<size, U>& v)
 	{
 		vec<size, T> puv(0);
 
@@ -18,6 +18,4 @@ namespace algebra
 		return puv;
 	}
 
-}
-
-}}
+}}}

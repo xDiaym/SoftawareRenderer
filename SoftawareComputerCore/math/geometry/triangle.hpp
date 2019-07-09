@@ -27,13 +27,19 @@ namespace geometry
 			vertices[2] = v2;
 		}
 
-		void raw_draw(Surface& screen, const color& col)
+		void draw_raw(Surface& screen, const color& col)
 		{
 			// TODO rewrite sgc::render::draw_triag function (or delte it)
 
 			draw_line(screen, proj<2>(vertices[0]), proj<2>(vertices[1]), col);
 			draw_line(screen, proj<2>(vertices[0]), proj<2>(vertices[2]), col);
 			draw_line(screen, proj<2>(vertices[1]), proj<2>(vertices[2]), col);
+		}
+
+
+		void draw_fill(Surface& screen, const color& col)
+		{
+
 		}
 
 		vec3i vertices[3];
