@@ -63,6 +63,7 @@ namespace algebra{
 
 
 	/*-----------------------------------------*/
+	// TODO delte &
 	template<size_t size, typename T>
 	std::ostream& operator<<(std::ostream& stream, const sgc::math::algebra::vec<size, T>& vector)
 	{
@@ -169,6 +170,8 @@ namespace algebra{
 		return ret;
 	}
 
+	// TODO add dive-function
+	// TODO add cast-function
 
 	typedef vec<3, uint8_t> color;
 

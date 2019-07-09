@@ -79,7 +79,7 @@ namespace algebra
 			return matrix;
 		}
 
-		static mat<4, 4, T> translate(mat<4, 4, T> &matrix, vec<3, T> &vector)
+		static mat<4, 4, T> translate(mat<4, 4, T> &matrix, vec<3, T> vector)
 		{
 			matrix = mat<4, 4, T>::diag(matrix);
 
@@ -90,7 +90,7 @@ namespace algebra
 		}
 
 
-		static mat<4, 4, T> scale(mat<4, 4, T> &matrix, vec<3, T> &vector)
+		static mat<4, 4, T> scale(mat<4, 4, T> &matrix, vec<3, T> vector)
 		{
 			for (size_t i = 0; i < 3; ++i)
 				matrix[i][i] = vector[i];
@@ -101,7 +101,7 @@ namespace algebra
 		}
 
 
-		static mat<4, 4, T> rotate(mat<4, 4, T> &matrix, float angle, vec<3, T> &vector)
+		static mat<4, 4, T> rotate(mat<4, 4, T> &matrix, float angle, vec<3, T> vector)
 		{
 			matrix[0][0] = (vector[0] * vector[0])	* (1 - std::cos(radians(angle))) + 				std::cos(radians(angle));
 			matrix[0][1] =  vector[0] * vector[1]	* (1 - std::cos(radians(angle))) - vector[2] *	std::sin(radians(angle));
