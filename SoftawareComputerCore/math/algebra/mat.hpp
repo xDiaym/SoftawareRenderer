@@ -1,4 +1,5 @@
 #pragma once
+#include <cmath>
 #include <cassert>
 #include <iostream>
 
@@ -96,6 +97,11 @@ namespace algebra
 			return matrix;
 		}
 
+
+		static mat<4, 4, T> rotate(mat<4, 4, T> &matrix, float angle, vec<3, T> &vector)
+		{
+			matrix[0][0] = std::cos(angle) + (vector[0] * vector[0]) * (1 - std::cos(angle));
+		}
 
 
 		vec<width, T> data[height];

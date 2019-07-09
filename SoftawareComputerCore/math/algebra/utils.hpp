@@ -18,4 +18,14 @@ namespace algebra
 		return puv;
 	}
 
+	inline float radians(float angle)
+	{
+		return angle * M_PI / 180;
+	}
+
+	inline float degrees(float angle)
+	{
+		return angle * 180 / M_PI;
+	}
+
 }}}

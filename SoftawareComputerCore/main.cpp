@@ -1,3 +1,5 @@
+#define _USE_MATH_DEFINES
+
 #include <iostream>
 #include <random>
 #include <ctime>
@@ -33,10 +35,12 @@ int main(int argc, char **argv)
 
 	mat4f test1(0.f);
 	mat4f test2(0.f);
+	mat4f test3(0.f);
 	
 	mat4f out(0.f);
 
 	test1 = mat4f::translate(test1, testv1);
+	test2 = mat4f::scale	(test2, testv2);
 	test2 = mat4f::scale	(test2, testv2);
 
 	out = test2 * test1;
