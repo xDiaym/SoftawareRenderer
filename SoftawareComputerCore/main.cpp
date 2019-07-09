@@ -32,8 +32,9 @@ int main(int argc, char **argv)
 	// triangle tr(vec3i{ 0, 0, 1 }, vec3i{ 64, 128, 1 }, vec3i{ 128, 0, 1 });
 
 	mat4f trans(0.f);
-	vec3i pos(512);
+	vec4i pos{ 512, 512, 0, 1 };
 	trans = mat4f::translate(trans, vec3f(20.f));
+	screen.change_pixel_color(proj<2>(pos), color{ 0, 255, 255 });
 
 	pos = trans * pos;
 	//tr.draw_raw(screen, color{ 0, 255, 255 });
