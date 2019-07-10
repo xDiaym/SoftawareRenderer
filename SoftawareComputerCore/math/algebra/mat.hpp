@@ -62,68 +62,7 @@ namespace algebra
 			{
 				data[i] = vec<width, T>(value);
 			}
-		}
-
-
-		// -----------------------------------------------------------------------
-		// TODO make this crap not-member
-
-
-		static mat<width, height, T> diag(mat<width, height, T> &matrix, T value=1)
-		{
-			assert(width == height);
-
-			for (size_t i = 0; i < width; i++)
-				matrix[i][i] = value;
-
-			return matrix;
-		}
-
-		static mat<4, 4, T> translate(mat<4, 4, T> &matrix, vec<3, T> vector)
-		{
-			matrix = mat<4, 4, T>::diag(matrix);
-
-			for (size_t i = 0; i < 3; ++i)
-				matrix[i][3] = vector[i];
-
-			return matrix;
-		}
-
-
-		static mat<4, 4, T> scale(mat<4, 4, T> &matrix, vec<3, T> vector)
-		{
-			for (size_t i = 0; i < 3; ++i)
-				matrix[i][i] = vector[i];
-
-			matrix[3][3] = 1;
-
-			return matrix;
-		}
-
-
-		static mat<4, 4, T> rotate(mat<4, 4, T> &matrix, float angle, vec<3, T> vector)
-		{
-			matrix[0][0] = (vector[0] * vector[0])	* (1 - std::cos(angle)) + 				std::cos(angle);
-			matrix[0][1] =  vector[0] * vector[1]	* (1 - std::cos(angle)) - vector[2] *	std::sin(angle);
-			matrix[0][2] =  vector[0] * vector[2]	* (1 - std::cos(angle)) + vector[1] *	std::sin(angle);
-			//matrix[0][3] = 0;
-
-			matrix[1][0] =  vector[0] * vector[1]	* (1 - std::cos(angle)) + vector[2] *	std::sin(angle);
-			matrix[1][1] = (vector[1] * vector[1])	* (1 - std::cos(angle)) + 				std::cos(angle);
-			matrix[1][2] =  vector[1] * vector[2]	* (1 - std::cos(angle)) - vector[0] *	std::sin(angle);
-			//matrix[1][3] = 0;
-
-			matrix[2][0] =  vector[2] * vector[0]	* (1 - std::cos(angle)) - vector[1] *	std::sin(angle);
-			matrix[2][1] =  vector[2] * vector[1]	* (1 - std::cos(angle)) + vector[0] *	std::sin(angle);
-			matrix[2][2] = (vector[2] * vector[2])	* (1 - std::cos(angle)) + 				std::cos(angle);
-			//matrix[2][3] = 0;
-
-			matrix.col(3)	= vec<3, T>(0);
-			matrix[3]		= vec<4, T>{ 0, 0, 0, 1 };
-
-
-			return matrix;
-		}
+		}s
 
 
 		vec<width, T> data[height];
@@ -169,6 +108,69 @@ namespace algebra
 			stream << matrix[i] << std::endl;
 		}
 		return stream;
+	}
+
+
+	// -----------------------------------------
+
+	template<size_t width, size_t height, typename T>
+	mat<width, height, T> diag(mat<width, height, T> &matrix, T value=1)
+	{
+		assert(width == height);
+
+		for (size_t i = 0; i < width; i++)
+			matrix[i][i] = value;
+
+		return matrix;
+	}
+
+
+	template<size_t width, size_t height, typename T>
+	mat<4, 4, T> translate(mat<4, 4, T> &matrix, vec<3, T> vector)
+	{
+		matrix = diag(matrix);
+
+		for (size_t i = 0; i < 3; ++i)
+			matrix[i][3] = vector[i];
+
+		return matrix;
+	}
+
+	template<size_t width, size_t height, typename T>
+	mat<4, 4, T> scale(mat<4, 4, T> &matrix, vec<3, T> vector)
+	{
+		for (size_t i = 0; i < 3; ++i)
+			matrix[i][i] = vector[i];
+
+		matrix[3][3] = 1;
+
+		return matrix;
+	}
+
+
+	template<size_t width, size_t height, typename T>
+	static mat<4, 4, T> rotate(mat<4, 4, T> &matrix, float angle, vec<3, T> vector)
+	{
+		matrix[0][0] = (vector[0] * vector[0])	* (1 - std::cos(angle)) + 				std::cos(angle);
+		matrix[0][1] =  vector[0] * vector[1]	* (1 - std::cos(angle)) - vector[2] *	std::sin(angle);
+		matrix[0][2] =  vector[0] * vector[2]	* (1 - std::cos(angle)) + vector[1] *	std::sin(angle);
+		//matrix[0][3] = 0;
+
+		matrix[1][0] =  vector[0] * vector[1]	* (1 - std::cos(angle)) + vector[2] *	std::sin(angle);
+		matrix[1][1] = (vector[1] * vector[1])	* (1 - std::cos(angle)) + 				std::cos(angle);
+		matrix[1][2] =  vector[1] * vector[2]	* (1 - std::cos(angle)) - vector[0] *	std::sin(angle);
+		//matrix[1][3] = 0;
+
+		matrix[2][0] =  vector[2] * vector[0]	* (1 - std::cos(angle)) - vector[1] *	std::sin(angle);
+		matrix[2][1] =  vector[2] * vector[1]	* (1 - std::cos(angle)) + vector[0] *	std::sin(angle);
+		matrix[2][2] = (vector[2] * vector[2])	* (1 - std::cos(angle)) + 				std::cos(angle);
+		//matrix[2][3] = 0;
+
+		matrix.col(3)	= vec<3, T>(0);
+		matrix[3]		= vec<4, T>{ 0, 0, 0, 1 };
+
+
+		return matrix;
 	}
 
 
