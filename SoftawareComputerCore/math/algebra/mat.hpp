@@ -103,19 +103,19 @@ namespace algebra
 
 		static mat<4, 4, T> rotate(mat<4, 4, T> &matrix, float angle, vec<3, T> vector)
 		{
-			matrix[0][0] = (vector[0] * vector[0])	* (1 - std::cos(radians(angle))) + 				std::cos(radians(angle));
-			matrix[0][1] =  vector[0] * vector[1]	* (1 - std::cos(radians(angle))) - vector[2] *	std::sin(radians(angle));
-			matrix[0][2] =  vector[0] * vector[2]	* (1 - std::cos(radians(angle))) + vector[1] *	std::sin(radians(angle));
+			matrix[0][0] = (vector[0] * vector[0])	* (1 - std::cos(angle)) + 				std::cos(angle);
+			matrix[0][1] =  vector[0] * vector[1]	* (1 - std::cos(angle)) - vector[2] *	std::sin(angle);
+			matrix[0][2] =  vector[0] * vector[2]	* (1 - std::cos(angle)) + vector[1] *	std::sin(angle);
 			//matrix[0][3] = 0;
 
-			matrix[1][0] =  vector[0] * vector[1]	* (1 - std::cos(radians(angle))) + vector[2] *	std::sin(radians(angle));
-			matrix[1][1] = (vector[1] * vector[1])	* (1 - std::cos(radians(angle))) + 				std::cos(radians(angle));
-			matrix[1][2] =  vector[1] * vector[2]	* (1 - std::cos(radians(angle))) - vector[0] *	std::sin(radians(angle));
+			matrix[1][0] =  vector[0] * vector[1]	* (1 - std::cos(angle)) + vector[2] *	std::sin(angle);
+			matrix[1][1] = (vector[1] * vector[1])	* (1 - std::cos(angle)) + 				std::cos(angle);
+			matrix[1][2] =  vector[1] * vector[2]	* (1 - std::cos(angle)) - vector[0] *	std::sin(angle);
 			//matrix[1][3] = 0;
 
-			matrix[2][0] =  vector[2] * vector[0]	* (1 - std::cos(radians(angle))) - vector[1] *	std::sin(radians(angle));
-			matrix[2][1] =  vector[2] * vector[1]	* (1 - std::cos(radians(angle))) + vector[0] *	std::sin(radians(angle));
-			matrix[2][2] = (vector[2] * vector[2])	* (1 - std::cos(radians(angle))) + 				std::cos(radians(angle));
+			matrix[2][0] =  vector[2] * vector[0]	* (1 - std::cos(angle)) - vector[1] *	std::sin(angle);
+			matrix[2][1] =  vector[2] * vector[1]	* (1 - std::cos(angle)) + vector[0] *	std::sin(angle);
+			matrix[2][2] = (vector[2] * vector[2])	* (1 - std::cos(angle)) + 				std::cos(angle);
 			//matrix[2][3] = 0;
 
 			matrix.col(3)	= vec<3, T>(0);

@@ -66,6 +66,14 @@ namespace loader
 		return _faces.size();
 	}
 
+
+	void Model::clear()
+	{
+		_faces.resize(1);
+		_verts.resize(1);
+	}
+
+
 	std::vector<int> Model::face(size_t i)
 	{
 		return _faces[i];

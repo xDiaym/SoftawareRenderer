@@ -31,6 +31,8 @@ namespace loader
 		std::vector<int> face(size_t i);
 		vec3f vert(size_t i);
 
+		void clear()
+
 	private:
 		std::vector<std::vector<int>> _faces;
 		std::vector<vec3f> _verts;
